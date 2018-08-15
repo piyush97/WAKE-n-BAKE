@@ -1,6 +1,7 @@
 {
   "name": "wake-n-bake",
   "version": "0.1.0",
+  "homepage": "https://piyush97.github.io/WAKE-n-BAKE/",
   "private": true,
   "dependencies": {
     "@babel/runtime": "7.0.0-beta.55",
@@ -28,6 +29,8 @@
     "start": "npm-run-all -p watch-css start-js",
     "build": "npm run build-css && react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   }
 }
