@@ -18,9 +18,8 @@ import CardBody from "components/Card/CardBody.jsx";
 import CardHeader from "components/Card/CardHeader.jsx";
 import CardFooter from "components/Card/CardFooter.jsx";
 import CustomInput from "components/CustomInput/CustomInput.jsx";
-
+// import API from '../../utils/api';
 import loginPageStyle from "assets/jss/material-kit-react/views/loginPage.jsx";
-
 import image from "assets/img/bg7.jpg";
 
 class LoginPage extends React.Component {
@@ -28,7 +27,9 @@ class LoginPage extends React.Component {
     super(props);
     // we use this to make the card to appear after the page has been rendered
     this.state = {
-      cardAnimaton: "cardHidden"
+      cardAnimaton: "cardHidden",
+      email:"",
+      password:""
     };
   }
   componentDidMount() {
@@ -40,6 +41,9 @@ class LoginPage extends React.Component {
       700
     );
   }
+  login() {
+    window.location = '/landing-page';
+}
   render() {
     const { classes, ...rest } = this.props;
     return (
@@ -47,7 +51,7 @@ class LoginPage extends React.Component {
         <Header
           absolute
           color="transparent"
-          brand="Material Kit React"
+          brand="Wake N Bake"
           rightLinks={<HeaderLinks />}
           {...rest}
         />
@@ -63,7 +67,7 @@ class LoginPage extends React.Component {
             <GridContainer justify="center">
               <GridItem xs={12} sm={12} md={4}>
                 <Card className={classes[this.state.cardAnimaton]}>
-                  <form className={classes.form}>
+                  <form className={classes.form} onSubmit={this.login}>
                     <CardHeader color="primary" className={classes.cardHeader}>
                       <h4>Login</h4>
                       <div className={classes.socialLine}>
@@ -125,7 +129,8 @@ class LoginPage extends React.Component {
                             <InputAdornment position="end">
                               <Email className={classes.inputIconsColor} />
                             </InputAdornment>
-                          )
+                          ),
+                          onChange:e=>this.setState({email:e.target.value})
                         }}
                       />
                       <CustomInput
@@ -142,12 +147,13 @@ class LoginPage extends React.Component {
                                 className={classes.inputIconsColor}
                               />
                             </InputAdornment>
-                          )
+                          ),
+                          onChange:e=>this.setState({password:e.target.value})
                         }}
                       />
                     </CardBody>
                     <CardFooter className={classes.cardFooter}>
-                      <Button simple color="primary" size="lg">
+                      <Button simple color="primary" size="lg" onClick={this.login}>
                         Get started
                       </Button>
                     </CardFooter>
