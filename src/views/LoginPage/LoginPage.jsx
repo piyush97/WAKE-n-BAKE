@@ -18,7 +18,7 @@ import CardBody from "components/Card/CardBody.jsx";
 import CardHeader from "components/Card/CardHeader.jsx";
 import CardFooter from "components/Card/CardFooter.jsx";
 import CustomInput from "components/CustomInput/CustomInput.jsx";
-import API from '../../utils/api';
+// import API from '../../utils/api';
 import loginPageStyle from "assets/jss/material-kit-react/views/loginPage.jsx";
 import image from "assets/img/bg7.jpg";
 
@@ -42,18 +42,8 @@ class LoginPage extends React.Component {
     );
   }
   login() {
-      API.post({}, "api/register", "", {
-       'email': this.state.email,
-       'password': this.state.password
-      }).end((err, data) => {
-       if (data.statusCode !== 200) {
-         alert(data.body.token);
-       }
-       if (data.statusCode === 200 && data.ok) {
-         alert(data.body.token);
-       }
-      });
-  }
+    window.location = '/landing-page';
+}
   render() {
     const { classes, ...rest } = this.props;
     return (
