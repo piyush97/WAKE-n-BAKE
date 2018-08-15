@@ -28,7 +28,7 @@ class TeamSection extends React.Component {
     );
     return (
       <div className={classes.section}>
-        <h2 className={classes.title}>Creator</h2>
+        <h2 className={classes.title}>Created With Love By</h2>
         <div>
           <GridContainer>
             <GridItem xs={12} sm={12} md={12}>
